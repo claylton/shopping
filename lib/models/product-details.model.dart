@@ -1,6 +1,6 @@
-import 'category.model copy.dart';
+import 'category.model.dart';
 
-class ProductDetails {
+class ProductDetailsModel {
   String id;
   String title;
   String tag;
@@ -10,7 +10,7 @@ class ProductDetails {
   List<String> image;
   CategoryModel category;
 
-  ProductDetails(
+  ProductDetailsModel(
       {this.id,
       this.title,
       this.tag,
@@ -20,7 +20,7 @@ class ProductDetails {
       this.image,
       this.category});
 
-  ProductDetails.fromJson(Map<String, dynamic> json) {
+  ProductDetailsModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     tag = json['tag'];
