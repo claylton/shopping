@@ -1,11 +1,11 @@
-class CategoryModel {
+class CategoryListItemModel {
   String id;
   String title;
   String tag;
 
-  CategoryModel({this.id, this.title, this.tag});
+  CategoryListItemModel({this.id, this.title, this.tag});
 
-  CategoryModel.fromJson(Map<String, dynamic> json) {
+  CategoryListItemModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     tag = json['tag'];

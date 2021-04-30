@@ -1,4 +1,4 @@
-import 'category.model.dart';
+import 'category-list-item.model.dart';
 
 class ProductDetailsModel {
   String id;
@@ -8,7 +8,7 @@ class ProductDetailsModel {
   String description;
   String brand;
   List<String> image;
-  CategoryModel category;
+  CategoryListItemModel category;
 
   ProductDetailsModel(
       {this.id,
@@ -29,7 +29,7 @@ class ProductDetailsModel {
     brand = json['brand'];
     image = json['image'].cast<String>();
     category = json['category'] != null
-        ? new CategoryModel.fromJson(json['category'])
+        ? new CategoryListItemModel.fromJson(json['category'])
         : null;
   }
 
