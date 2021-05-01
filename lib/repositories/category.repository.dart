@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:shopping/models/category-list-item.model.dart';
-import 'package:shopping/settings.dart';
+import 'package:shopping/settings/settings.dart';
 
 class CategoryRepository {
   Future<List<CategoryListItemModel>> getAll() async {
