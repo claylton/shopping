@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:shopping/models/product-details.model.dart';
 import 'package:shopping/models/puduct-list-item.model.dart';
-import 'package:shopping/settings.dart';
+import 'package:shopping/settings/settings.dart';
 
 class ProductRepository {
   Future<List<ProductListItemModel>> getAll() async {
