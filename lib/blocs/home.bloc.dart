@@ -39,7 +39,11 @@ class HomeBloc extends ChangeNotifier {
 
   changeCategory(String tag) {
     this.products = null;
-    this.selectCategory = tag;
+    if (this.selectCategory == tag)
+      this.selectCategory = 'todos';
+    else
+      this.selectCategory = tag;
+
     getProductsByCategory();
     notifyListeners();
   }
