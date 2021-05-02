@@ -38,12 +38,12 @@ class HomeBloc extends ChangeNotifier {
   }
 
   changeCategory(String tag) {
-    this.products = null;
     if (this.selectCategory == tag)
       this.selectCategory = 'todos';
     else
       this.selectCategory = tag;
 
+    this.products = null;
     getProductsByCategory();
     notifyListeners();
   }
