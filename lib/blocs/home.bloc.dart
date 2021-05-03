@@ -48,7 +48,5 @@ class HomeBloc extends ChangeNotifier {
       this.selectCategory = tag;
       getProductsByCategory();
     }
-
-    notifyListeners();
   }
 }
