@@ -9,12 +9,12 @@ class CartBloc extends ChangeNotifier {
     return cart;
   }
 
-  add(CartItemModel item) {
+  addItem(CartItemModel item) {
     cart.add(item);
     calculateTotal();
   }
 
-  remove(CartItemModel item) {
+  removeItem(CartItemModel item) {
     cart.removeWhere((element) => element.id == item.id);
     calculateTotal();
   }
