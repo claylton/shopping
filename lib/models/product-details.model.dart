@@ -27,7 +27,7 @@ class ProductDetailsModel {
     price = json['price'];
     description = json['description'];
     brand = json['brand'];
-    image = json['image'].cast<String>();
+    image = json['images'].cast<String>();
     category = json['category'] != null
         ? new CategoryListItemModel.fromJson(json['category'])
         : null;
@@ -41,11 +41,10 @@ class ProductDetailsModel {
     data['price'] = this.price;
     data['description'] = this.description;
     data['brand'] = this.brand;
-    data['image'] = this.image;
+    data['images'] = this.image;
     if (this.category != null) {
       data['category'] = this.category.toJson();
     }
     return data;
   }
 }
-
