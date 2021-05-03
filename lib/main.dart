@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/blocs/home.bloc.dart';
-import 'package:shopping/ui/android/pages/home.page.dart';
+import 'package:shopping/ui/android/pages/tabs.page.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +20,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomePage(),
+        home: DefaultTabController(
+          length: 3,
+          child: TabsPage(),
+        ),
       ),
     );
   }
