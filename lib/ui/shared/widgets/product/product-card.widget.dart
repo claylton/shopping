@@ -11,7 +11,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final price = new NumberFormat("#,##0.00", "pt+BR");
+    final price = new NumberFormat("#,##0.00", "pt_BR");
 
     return Container(
       margin: EdgeInsets.all(5),
