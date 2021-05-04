@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/blocs/cart.bloc.dart';
 import 'package:shopping/models/cart-item.model.dart';
+import 'package:shopping/ui/shared/widgets/cart/cart-item.widget.dart';
 import 'package:shopping/ui/shared/widgets/shared/loader.widget.dart';
 
 // ignore: must_be_immutable
@@ -42,7 +43,16 @@ class CartPage extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: Text("Checkout"),
+                    child: Container(
+                      width: 100,
+                      child: Text(
+                        "Checkout",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                             Theme.of(context).primaryColor)),
