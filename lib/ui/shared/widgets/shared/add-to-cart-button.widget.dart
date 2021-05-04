@@ -48,6 +48,7 @@ class AddToCart extends StatelessWidget {
               onPressed: () {
                 bloc.addItem(cartItem);
                 final snackBar = SnackBar(
+                    //duration: Duration(seconds: 2),
                     content: Text(
                         "${item.title} adicionado ao carrinho, amiguinho"));
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);

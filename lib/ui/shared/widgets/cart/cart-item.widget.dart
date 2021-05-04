@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,8 @@ class CartItem extends StatelessWidget {
     return Container(
       height: 120,
       margin: EdgeInsets.all(5),
-      child: Row(
+      child: ListView(
+        scrollDirection: Axis.horizontal,
         children: <Widget>[
           Container(
             width: 100,
@@ -25,6 +27,66 @@ class CartItem extends StatelessWidget {
             child: Image.network(
               item.image,
               fit: BoxFit.fitWidth,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              top: 20,
+              left: 10,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("${item.title}"),
+                Text(
+                  "R\$ ${price.format(item.price)}",
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text("R\$ ${price.format((item.price * item.quantity))}"),
+                Container(
+                  height: 30,
+                  width: 120,
+                  decoration: BoxDecoration(
+                    color: Colors.black12,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(5),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 40,
+                        alignment: Alignment.center,
+                        child: TextButton(
+                          onPressed: () {
+                            bloc.decrementQtdItem(item);
+                          },
+                          child: Text("-"),
+                        ),
+                      ),
+                      Container(
+                        width: 40,
+                        alignment: Alignment.center,
+                        child: Text(item.quantity.toString()),
+                      ),
+                      Container(
+                        width: 40,
+                        alignment: Alignment.center,
+                        child: TextButton(
+                            onPressed: () {
+                              bloc.incrementQtdItem(item);
+                            },
+                            child: Text("+")),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],
