@@ -35,6 +35,7 @@ class TabsPage extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
+                      //TODO Exibir itens por quantidade de produtos no carrinho
                       "${bloc.cart.length}",
                       style: TextStyle(
                         color: Colors.white,
