@@ -21,12 +21,12 @@ class UserBloc extends ChangeNotifier {
       var prefs = await SharedPreferences.getInstance();
       var repository = new AccountRepository();
 
-      var res = await repository.authenticate(model);
+      UserModel response = await repository.authenticate(model);
 
-      user = res;
-      await prefs.setString('user', jsonEncode(res));
+      user = response;
+      await prefs.setString('user', jsonEncode(response));
 
-      return res;
+      return response;
     } catch (e) {
       user = null;
       return null;
