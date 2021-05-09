@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/blocs/user.bloc.dart';
 import 'package:shopping/models/authenticate-user.model.dart';
+import 'package:shopping/ui/android/pages/account.page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -105,7 +106,12 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     if (user != null) {
-      Navigator.pop(context);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AccountPage(),
+        ),
+      );
       return;
     }
 

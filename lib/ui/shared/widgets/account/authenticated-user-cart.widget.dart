@@ -36,12 +36,12 @@ class AuthenticatedUserCard extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Text("Bom-vindo, ${bloc.user.name}"),
+            Text("Bem-vindo, ${bloc.user.name}"),
             SizedBox(
               height: 20,
             ),
             TextButton(
-              onPressed: bloc.logout(),
+              onPressed: bloc.logout,
               child: Text("Sair"),
             ),
           ],
