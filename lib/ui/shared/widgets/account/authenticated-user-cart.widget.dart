@@ -11,6 +11,7 @@ class AuthenticatedUserCard extends StatelessWidget {
     return Container(
       child: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
               height: 20,
