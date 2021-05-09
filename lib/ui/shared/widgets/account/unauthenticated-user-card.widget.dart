@@ -20,7 +20,7 @@ class UnauthenticateddUserCard extends StatelessWidget {
               ),
             );
           },
-          child: Text("Autentique-se"),
+          child: Text("Login"),
         ),
         TextButton(
             onPressed: () {
