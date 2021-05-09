@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/blocs/cart.bloc.dart';
 import 'package:shopping/blocs/home.bloc.dart';
+import 'package:shopping/blocs/theme.bloc.dart';
 import 'package:shopping/blocs/user.bloc.dart';
 import 'package:shopping/ui/android/pages/tabs.page.dart';
 
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<UserBloc>.value(
           value: UserBloc(),
+        ),
+        ChangeNotifierProvider<ThemeBloc>.value(
+          value: ThemeBloc(),
         ),
       ],
       child: MaterialApp(
