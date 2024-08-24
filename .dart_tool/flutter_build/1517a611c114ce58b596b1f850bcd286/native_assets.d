@@ -1,0 +1,1 @@
+ /Users/claylton/dev/temp/shopping/.dart_tool/flutter_build/1517a611c114ce58b596b1f850bcd286/native_assets.yaml: 
