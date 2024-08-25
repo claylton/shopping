@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage({super.key});
+  final String image;
+  final String title;
+  final String description;
+  final double price;
+
+  const ProductPage({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.description,
+    required this.price,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,33 +26,33 @@ class ProductPage extends StatelessWidget {
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
-                  background: Image.asset("assets/product-10.png"),
+                  background: Image.asset(image),
                 ),
               )
             ];
           },
           body: ListView(
             padding: const EdgeInsets.all(0),
-            children: const [
+            children: [
               Padding(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   top: 10,
                   left: 10,
                   right: 10,
                 ),
                 child: Text(
-                  "Dry Fit Long Sleeve",
-                  style: TextStyle(
+                  title,
+                  style: const TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(10),
-                child: Text("by Nike"),
+                padding: const EdgeInsets.all(10),
+                child: Text(description)
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(10),
                 child: Text(
                   "Details",
@@ -50,7 +61,7 @@ class ProductPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(10),
                 child: Text("Nike Dri-FIT is a polyester fabric designed to help you keep dry so you can more comfortably work harder, longer."),
               )
