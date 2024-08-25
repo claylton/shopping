@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping/pages/sign_up_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -49,7 +50,14 @@ class LoginPage extends StatelessWidget {
                                 Text("Sign in to continue"),
                               ],
                             ),
-                            TextButton(onPressed: () {}, child: const Text('Sign up'))
+                            TextButton(
+                              onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const SignUpPage(),
+                                  )),
+                              child: const Text('Sign up'),
+                            )
                           ],
                         ),
                         const SizedBox(height: 60),
