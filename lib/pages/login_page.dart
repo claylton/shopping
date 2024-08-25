@@ -9,7 +9,6 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-            color: const Color(0XFFF5F5F5),
             padding: const EdgeInsets.only(
               top: 80.0,
               left: 20,
@@ -20,9 +19,9 @@ class LoginPage extends StatelessWidget {
               children: [
                 Container(
                   height: 450,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.secondary,
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.black12,
                         offset: Offset(1, 2.0),
@@ -38,16 +37,16 @@ class LoginPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Column(
+                            Column(
                               children: [
                                 Text(
                                   "Welcome",
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                                  style: Theme.of(context).textTheme.displaySmall,
                                 ),
-                                Text("Sign in to continue"),
+                                Text(
+                                  "Sign in to continue",
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
                               ],
                             ),
                             TextButton(
@@ -56,49 +55,56 @@ class LoginPage extends StatelessWidget {
                                   MaterialPageRoute(
                                     builder: (context) => const SignUpPage(),
                                   )),
-                              child: const Text('Sign up'),
+                              child: Text(
+                                'Sign up',
+                                style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                              ),
                             )
                           ],
                         ),
                         const SizedBox(height: 60),
                         TextFormField(
                           keyboardType: TextInputType.emailAddress,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                               labelText: "Email",
                               labelStyle: TextStyle(
-                                color: Colors.black,
+                                color: Theme.of(context).colorScheme.primary,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 16,
                               )),
-                          style: const TextStyle(
-                            fontSize: 20,
-                          ),
+                          style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.primary),
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
                           keyboardType: TextInputType.text,
                           obscureText: true,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                               labelText: "Password",
                               labelStyle: TextStyle(
-                                color: Colors.black,
+                                color: Theme.of(context).colorScheme.primary,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 16,
                               )),
-                          style: const TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.primary),
                         ),
                         Container(
                           height: 40,
                           alignment: Alignment.centerRight,
                           child: TextButton(
                             onPressed: () {},
-                            child: const Text("Forgot your password? "),
+                            child: Text(
+                              "Forgot your password? ",
+                              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 10),
                         Container(
                           width: double.infinity,
-                          decoration: const BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(5))),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: const BorderRadius.all(Radius.circular(5)),
+                          ),
                           child: TextButton(
                               onPressed: () {},
                               child: const Text(
@@ -126,7 +132,7 @@ class LoginPage extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 2.0,
-                      color: Colors.blue,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                     borderRadius: const BorderRadius.all(Radius.circular(5)),
                   ),
@@ -153,7 +159,7 @@ class LoginPage extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 2.0,
-                      color: Colors.blue,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                     borderRadius: const BorderRadius.all(Radius.circular(5)),
                   ),

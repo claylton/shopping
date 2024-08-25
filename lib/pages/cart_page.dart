@@ -20,18 +20,18 @@ class CartPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 20, top: 15),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "TOTAL",
                       ),
                       Text(
                         "\$4250",
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Theme.of(context).colorScheme.primary,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
@@ -42,14 +42,14 @@ class CartPage extends StatelessWidget {
                 Container(
                   height: 50,
                   width: 150,
-                  decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(5)),
-                  margin: EdgeInsets.only(right: 20),
+                  decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(5)),
+                  margin: const EdgeInsets.only(right: 20),
                   child: TextButton(
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         "Checkout",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.secondary,
                         ),
                       )),
                 )
@@ -64,16 +64,13 @@ class CartPage extends StatelessWidget {
 
 Widget productList(BuildContext context) {
   return ListView(children: [
-    productItem(),
-    productItem(),
-    productItem(),
-    productItem(),
-    productItem(),
-    productItem(),
+    productItem(context),
+    productItem(context),
+    productItem(context),
   ]);
 }
 
-Widget productItem() {
+Widget productItem(BuildContext context) {
   return Container(
     height: 120,
     margin: const EdgeInsets.all(5),
@@ -82,7 +79,7 @@ Widget productItem() {
         Container(
           width: 100,
           height: 100,
-          margin: EdgeInsets.all(10),
+          margin:const  EdgeInsets.all(10),
           child: Image.asset(
             "assets/product-1.png",
             fit: BoxFit.fitWidth,
@@ -97,13 +94,13 @@ Widget productItem() {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text("Título do produto"),
-              const Text(
+              Text(
                 "\$200",
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 height: 35,
                 width: 120,
@@ -118,7 +115,7 @@ Widget productItem() {
                       alignment: Alignment.center,
                       child: TextButton(
                         onPressed: () {},
-                        child: Text("+", textAlign: TextAlign.center),
+                        child: const Text("+", textAlign: TextAlign.center),
                       ),
                     ),
                     Container(

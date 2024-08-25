@@ -9,7 +9,6 @@ class SignUpPage extends StatelessWidget {
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Container(
-          color: const Color(0XFFF5F5F5),
           padding: const EdgeInsets.only(
             top: 80.0,
             left: 20,
@@ -35,60 +34,54 @@ class SignUpPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         "Sign Up",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
                       const SizedBox(height: 60),
                       TextFormField(
                         keyboardType: TextInputType.text,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                             labelText: "Name",
                             labelStyle: TextStyle(
-                              color: Colors.black,
+                              color: Theme.of(context).colorScheme.primary,
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
                             )),
-                        style: const TextStyle(
-                          fontSize: 20,
-                        ),
+                        style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.primary),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                             labelText: "Email",
                             labelStyle: TextStyle(
-                              color: Colors.black,
+                              color: Theme.of(context).colorScheme.primary,
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
                             )),
-                        style: const TextStyle(
-                          fontSize: 20,
-                        ),
+                        style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.primary),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         keyboardType: TextInputType.text,
                         obscureText: true,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                             labelText: "Password",
                             labelStyle: TextStyle(
-                              color: Colors.black,
+                              color: Theme.of(context).colorScheme.primary,
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
                             )),
-                        style: const TextStyle(
-                          fontSize: 20,
-                        ),
+                        style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.primary),
                       ),
                       const SizedBox(height: 40),
                       Container(
                         width: double.infinity,
-                        decoration: const BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(5))),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: const BorderRadius.all(Radius.circular(5)),
+                        ),
                         child: TextButton(
                             onPressed: () {},
                             child: const Text(
