@@ -26,7 +26,11 @@ class ProductPage extends StatelessWidget {
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
-                  background: Image.asset(image),
+                  background: Image.asset(
+                    image,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
                 ),
               )
             ];
@@ -48,10 +52,7 @@ class ProductPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Text(description)
-              ),
+              Padding(padding: const EdgeInsets.all(10), child: Text(description)),
               const Padding(
                 padding: EdgeInsets.all(10),
                 child: Text(
