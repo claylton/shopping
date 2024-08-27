@@ -9,8 +9,8 @@ class TabsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const TabBarView(
-        children: [HomePage(), CartPage(), LoginPage()],
+      body: TabBarView(
+        children: [const HomePage(), const CartPage(), LoginPage()],
       ),
       bottomNavigationBar: TabBar(
         tabs: const [

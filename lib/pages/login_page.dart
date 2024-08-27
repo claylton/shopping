@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:shopping/pages/sign_up_page.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final _formKey = GlobalKey<FormState>();
+  String _email = "";
+  String _password = "";
+
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class LoginPage extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  height: 450,
+                  height: 480,
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.secondary,
                     boxShadow: const [
@@ -32,87 +36,116 @@ class LoginPage extends StatelessWidget {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15, top: 60),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              children: [
-                                Text(
-                                  "Welcome",
-                                  style: Theme.of(context).textTheme.displaySmall,
-                                ),
-                                Text(
-                                  "Sign in to continue",
-                                  style: Theme.of(context).textTheme.titleSmall,
-                                ),
-                              ],
-                            ),
-                            TextButton(
-                              onPressed: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const SignUpPage(),
-                                  )),
-                              child: Text(
-                                'Sign up',
-                                style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                children: [
+                                  Text(
+                                    "Welcome",
+                                    style: Theme.of(context).textTheme.displaySmall,
+                                  ),
+                                  Text(
+                                    "Sign in to continue",
+                                    style: Theme.of(context).textTheme.titleSmall,
+                                  ),
+                                ],
                               ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 60),
-                        TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                              labelText: "Email",
-                              labelStyle: TextStyle(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 16,
-                              )),
-                          style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.primary),
-                        ),
-                        const SizedBox(height: 10),
-                        TextFormField(
-                          keyboardType: TextInputType.text,
-                          obscureText: true,
-                          decoration: InputDecoration(
-                              labelText: "Password",
-                              labelStyle: TextStyle(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 16,
-                              )),
-                          style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.primary),
-                        ),
-                        Container(
-                          height: 40,
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Forgot your password? ",
-                              style: TextStyle(color: Theme.of(context).colorScheme.primary),
-                            ),
+                              TextButton(
+                                onPressed: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const SignUpPage(),
+                                    )),
+                                child: Text(
+                                  'Sign up',
+                                  style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                                ),
+                              )
+                            ],
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primary,
-                            borderRadius: const BorderRadius.all(Radius.circular(5)),
+                          const SizedBox(height: 60),
+                          TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                                labelText: "Email",
+                                labelStyle: TextStyle(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 16,
+                                )),
+                            style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.primary),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your email';
+                              }
+                              return null;
+                            },
+                            onSaved: (newValue) => _email = newValue ??  "",
                           ),
-                          child: TextButton(
+                          const SizedBox(height: 10),
+                          TextFormField(
+                            keyboardType: TextInputType.text,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                labelText: "Password",
+                                labelStyle: TextStyle(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 16,
+                                )),
+                            style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.primary),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your passwordoi';
+                              }
+                              return null;
+                            },
+                            onSaved: (newValue) => _password = newValue ??  "",
+                          ),
+                          Container(
+                            height: 40,
+                            alignment: Alignment.centerRight,
+                            child: TextButton(
                               onPressed: () {},
                               child: Text(
-                                "Sign In",
-                                style: TextStyle(color: Theme.of(context).colorScheme.primaryContainer,),
-                              )),
-                        )
-                      ],
+                                "Forgot your password? ",
+                                style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.primary,
+                              borderRadius: const BorderRadius.all(Radius.circular(5)),
+                            ),
+                            child: TextButton(
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    _formKey.currentState!.save();
+                                    print(_email);
+                                    print(_password);
+
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text("Welcome $_email")),
+                                    );
+                                  }
+                                },
+                                child: Text(
+                                  "Sign In",
+                                  style: TextStyle(
+                                    color: Theme.of(context).colorScheme.primaryContainer,
+                                  ),
+                                )),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
