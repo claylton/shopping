@@ -49,7 +49,7 @@ class CartPage extends StatelessWidget {
                       child: Text(
                         "Checkout",
                         style: TextStyle(
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: Theme.of(context).colorScheme.primaryContainer,
                         ),
                       )),
                 )

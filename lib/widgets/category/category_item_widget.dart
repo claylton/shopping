@@ -12,9 +12,9 @@ class CategoryItemWidget extends StatelessWidget {
       width: 70,
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primaryContainer,
+        boxShadow: const[
           BoxShadow(
             color: Colors.black12,
             offset: Offset(1, 1),

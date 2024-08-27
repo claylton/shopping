@@ -11,7 +11,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(15),
-        color: const Color(0XFFF5F5F5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

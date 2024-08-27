@@ -20,11 +20,11 @@ class SearchBoxWidget extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10),
             child: TextFormField(
               keyboardType: TextInputType.text,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                   border: InputBorder.none,
                   labelText: "Search...",
                   labelStyle: TextStyle(
-                    color: Colors.blue,
+                    color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.w300,
                     fontSize: 16,
                   )),
